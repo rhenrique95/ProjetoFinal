@@ -16,6 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".VerFornecedor" />
+        <activity android:name=".NovoFornecedor" />
+        <activity android:name=".EditarFornecedor"></activity>
     </application>
 
 </manifest>
