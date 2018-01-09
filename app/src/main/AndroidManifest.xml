@@ -18,7 +18,11 @@
         </activity>
         <activity android:name=".VerFornecedor" />
         <activity android:name=".NovoFornecedor" />
-        <activity android:name=".EditarFornecedor"></activity>
+        <activity android:name=".EditarFornecedor" />
+        <activity android:name=".Inventario" />
+        <activity android:name=".NovoInventario" />
+        <activity android:name=".EditarInventario" />
+        <activity android:name=".VerInventario"></activity>
     </application>
 
 </manifest>

@@ -2,6 +2,7 @@
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ScrollView01"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
@@ -21,7 +22,7 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
-                android:layout_height="583dp"
+                android:layout_height="701dp"
                 android:background="@android:color/background_light"
                 tools:context="com.example.renat.projetofinal.EditarFornecedor">
 
@@ -33,7 +34,8 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    android:background="@android:drawable/checkbox_on_background"
+                    android:background="@android:drawable/ic_menu_save"
+                    android:backgroundTint="@android:color/background_dark"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +47,7 @@
                 <EditText
                     android:id="@+id/nome"
                     android:layout_width="wrap_content"
-                    android:layout_height="31dp"
+                    android:layout_height="38dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
@@ -81,32 +83,34 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
-                    android:layout_marginEnd="140dp"
+                    android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:ems="10"
                     android:inputType="textPersonName"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.124"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.191" />
+                    app:layout_constraintVertical_bias="0.21" />
 
                 <TextView
                     android:id="@+id/morada2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
-                    android:layout_marginEnd="232dp"
+                    android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:text="Morada Fornecedor"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.078"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.131" />
+                    app:layout_constraintVertical_bias="0.149" />
 
                 <TextView
                     android:id="@+id/textView4"
@@ -120,10 +124,10 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.067"
+                    app:layout_constraintHorizontal_bias="0.061"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.274" />
+                    app:layout_constraintVertical_bias="0.275" />
 
                 <EditText
                     android:id="@+id/contacto"
@@ -137,10 +141,10 @@
                     android:inputType="textPersonName"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.137"
+                    app:layout_constraintHorizontal_bias="0.124"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.33" />
+                    app:layout_constraintVertical_bias="0.35" />
 
                 <TextView
                     android:id="@+id/email2"
@@ -154,27 +158,27 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.071"
+                    app:layout_constraintHorizontal_bias="0.072"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.412" />
+                    app:layout_constraintVertical_bias="0.441" />
 
                 <EditText
                     android:id="@+id/email"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="44dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:ems="10"
-                    android:inputType="textPersonName"
+                    android:inputType="textEmailAddress"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.156"
+                    app:layout_constraintHorizontal_bias="0.124"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.479" />
+                    app:layout_constraintVertical_bias="0.516" />
 
                 <TextView
                     android:id="@+id/empresa2"
@@ -188,10 +192,10 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.114"
+                    app:layout_constraintHorizontal_bias="0.075"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.549" />
+                    app:layout_constraintVertical_bias="0.598" />
 
                 <EditText
                     android:id="@+id/empresa"
@@ -205,10 +209,10 @@
                     android:inputType="textPersonName"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.156"
+                    app:layout_constraintHorizontal_bias="0.124"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.622" />
+                    app:layout_constraintVertical_bias="0.686" />
 
                 <TextView
                     android:id="@+id/textView2"
@@ -222,10 +226,10 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.072"
+                    app:layout_constraintHorizontal_bias="0.057"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.698" />
+                    app:layout_constraintVertical_bias="0.759" />
 
                 <EditText
                     android:id="@+id/notas"
@@ -239,10 +243,10 @@
                     android:inputType="textMultiLine"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.118"
+                    app:layout_constraintHorizontal_bias="0.093"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.923" />
+                    app:layout_constraintVertical_bias="1.0" />
 
             </android.support.constraint.ConstraintLayout>
 

@@ -92,5 +92,71 @@ public class AdaptadorBaseDados {
         whereArgs[0] = ""+id;
         return database.delete("fornecedores", whereClause, whereArgs);
     }
+
+
+
+
+
+
+
+    public Cursor obterInventario(){
+        Cursor cursor = database.rawQuery(
+                "select _id, produto, quantidade from inventario", null);
+        return cursor;
+    }
+
+    public Cursor obterInventarioId(Integer id){
+        Cursor cursor = database.rawQuery(
+                "select _id, produto, quantidade from inventario where _id=?", new String[] { id.toString() });
+        return cursor;
+    }
+
+    public boolean insereInventario(String produto, String quantidade){
+        ContentValues valores;
+        long resultado;
+
+        database = dbHelper.getWritableDatabase();
+        valores = new ContentValues();
+        valores.put("produto", produto);
+        valores.put("quantidade", quantidade);
+
+
+        resultado = database.insert("inventario", null, valores);
+        database.close();
+
+        if (resultado ==-1) {
+            return false;
+        }
+        else {
+            return true;
+        }
+
+    }
+
+    public boolean alteraInventario(Integer id, String produto, String quantidade) {
+        long resultado;
+        String whereClause = "_id = ?";
+        String[] whereArgs = new String[1];
+        whereArgs[0] = new Integer(id).toString();
+        ContentValues values = new ContentValues();
+        values.put("produto", produto);
+        values.put("quantidade", quantidade);
+
+        resultado =  database.update("inventario", values, whereClause, whereArgs);
+
+        if (resultado ==-1) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+    public int apagarInventario(Integer id) {
+        String whereClause = "_id = ?";
+        String[] whereArgs = new String[1];
+        whereArgs[0] = ""+id;
+        return database.delete("inventario", whereClause, whereArgs);
+    }
 }
 

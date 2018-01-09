@@ -3,21 +3,24 @@ package com.example.renat.projetofinal;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends Activity {
+public class Inventario extends Activity {
 
     protected Button novo;
-    protected Button stock;
+    protected Button menu;
     protected AdaptadorBaseDados adb;
     protected Cursor cursor;
     protected ListView listView;
@@ -41,13 +44,13 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_inventario);
 
         cursor = null;
         inventario = new ArrayList<>();
         adb = new AdaptadorBaseDados(this).open();
 
-        cursor = adb.obterFornecedores();
+        cursor = adb.obterInventario();
 
         if (cursor.moveToFirst()) {
             do {
@@ -73,7 +76,7 @@ public class MainActivity extends Activity {
                 cursor.moveToPosition(position);
                 int _id = cursor.getInt(0);
 
-                Intent intent = new Intent (MainActivity.this, VerFornecedor.class);
+                Intent intent = new Intent (Inventario.this, VerInventario.class);
                 intent.putExtra("_id", _id);
                 startActivity (intent);
             }
@@ -85,19 +88,20 @@ public class MainActivity extends Activity {
         novo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent (MainActivity.this, NovoFornecedor.class);
+                Intent i=new Intent (Inventario.this, NovoInventario.class);
                 startActivity (i);
             }
         });
 
-        stock = (Button) findViewById(R.id.stock);
-        stock.setOnClickListener(new View.OnClickListener() {
+        menu = (Button) findViewById(R.id.menu);
+        menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent (MainActivity.this, Inventario.class);
+                Intent i=new Intent (Inventario.this, MainActivity.class);
                 startActivity (i);
             }
         });
+
     }
 
     @Override

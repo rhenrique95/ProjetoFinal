@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class AjudaUsoBaseDados extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "base-dados.db";
-    private static final int VERSION = 1;
+    private static final int VERSION = 2;
 
     public AjudaUsoBaseDados(Context context) {
         super(context, DATABASE_NAME, null, VERSION);
@@ -20,10 +20,13 @@ public class AjudaUsoBaseDados extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String fornecedores = "CREATE TABLE fornecedores(_id integer primary key autoincrement, nome varchar(40), morada varchar(40), contacto varchar(40), email varchar(40),  nomeEmpresa varchar(40),  notas text)";
         db.execSQL(fornecedores);
+        String inventario = "CREATE TABLE inventario(_id integer primary key autoincrement, produto varchar(40), quantidade integer(40))";
+        db.execSQL(inventario);
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS fornecedores");
+        db.execSQL("DROP TABLE IF EXISTS inventario");
         onCreate(db);
     }
 }
