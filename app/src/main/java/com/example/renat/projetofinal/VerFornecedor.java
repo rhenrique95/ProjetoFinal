@@ -3,6 +3,7 @@ package com.example.renat.projetofinal;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -53,11 +54,19 @@ public class VerFornecedor extends Activity {
         notas = (TextView) findViewById(R.id.notas);
 
         adb = new AdaptadorBaseDados(this).open();
-
         oIntent = getIntent();
         _id = oIntent.getExtras().getInt("_id");
         cursor = adb.obterFornecedorId(_id);
 
+
+        morada.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse("geo:0,0?q="+morada.getText().toString()+""));
+                startActivity(i);
+            }
+        });
         if (cursor.moveToFirst()) {
             nome.setText(cursor.getString(1));
             morada.setText(cursor.getString(2));
