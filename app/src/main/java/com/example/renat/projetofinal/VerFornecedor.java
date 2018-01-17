@@ -1,11 +1,16 @@
 package com.example.renat.projetofinal;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,9 +37,11 @@ public class VerFornecedor extends Activity {
         super.onStart();
         adb = new AdaptadorBaseDados(this).open();
     }
+
     protected void onPause() {
         super.onPause();
     }
+
     @Override
     protected void onStop() {
         super.onStop();
@@ -49,7 +56,7 @@ public class VerFornecedor extends Activity {
         nome = (TextView) findViewById(R.id.nome);
         morada = (TextView) findViewById(R.id.morada);
         contacto = (TextView) findViewById(R.id.contacto);
-        email = (TextView)findViewById(R.id.email);
+        email = (TextView) findViewById(R.id.email);
         empresa = (TextView) findViewById(R.id.empresa);
         notas = (TextView) findViewById(R.id.notas);
 
@@ -63,7 +70,7 @@ public class VerFornecedor extends Activity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse("geo:0,0?q="+morada.getText().toString()+""));
+                i.setData(Uri.parse("geo:0,0?q=" + morada.getText().toString() + ""));
                 startActivity(i);
             }
         });
@@ -77,14 +84,13 @@ public class VerFornecedor extends Activity {
         }
 
 
-
         editar = (Button) findViewById(R.id.editar);
         editar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent (VerFornecedor.this, EditarFornecedor.class);
+                Intent intent = new Intent(VerFornecedor.this, EditarFornecedor.class);
                 intent.putExtra("_id", _id);
-                startActivity (intent);
+                startActivity(intent);
             }
         });
 
@@ -97,12 +103,34 @@ public class VerFornecedor extends Activity {
                 Toast toast = Toast.makeText(VerFornecedor.this, "Fornecedor apagado com sucesso!", Toast.LENGTH_LONG);
                 toast.show();
 
-                Intent i=new Intent (VerFornecedor.this,MainActivity.class);
-                startActivity (i);
+                Intent i = new Intent(VerFornecedor.this, MainActivity.class);
+                startActivity(i);
             }
         });
+
+
+        contacto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                makeCall(contacto.getText().toString());
+            }
+        });
+
+
     }
 
+    protected void makeCall(String contacto) {
+
+        int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE);
+
+        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(
+                    this,
+                    new String[]{Manifest.permission.CALL_PHONE}, 351);
+        } else {
+            startActivity(new Intent(Intent.ACTION_CALL).setData(Uri.parse("tel:"+contacto)));
+        }
+    }
     @Override
     public void onBackPressed() {
         Intent intent=new Intent (VerFornecedor.this,MainActivity.class);

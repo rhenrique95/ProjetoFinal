@@ -42,7 +42,7 @@ public class EditarInventario extends Activity {
         produto = (EditText) findViewById(R.id.produto);
         quantidade = (EditText) findViewById(R.id.quantidade);
 
-        editar = (Button) findViewById(R.id.editar);
+        editar = (Button) findViewById(R.id.inserir);
 
         adb = new AdaptadorBaseDados(this).open();
 
@@ -57,7 +57,6 @@ public class EditarInventario extends Activity {
             quantidade.setText(cursor.getString(2));
 
         }
-
 
 
         editar.setOnClickListener(new View.OnClickListener() {

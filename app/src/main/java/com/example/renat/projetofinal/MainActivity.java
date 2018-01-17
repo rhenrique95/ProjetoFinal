@@ -23,6 +23,7 @@ public class MainActivity extends Activity {
     protected ListView listView;
     protected List<String> inventario;
 
+
     @Override
     protected void onStart() {
         super.onStart();
